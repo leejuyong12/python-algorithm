@@ -1,44 +1,75 @@
 n, m, t = map(int, input().split())
 
-tow = 0
-bul = 0
+tow_ham = 0
+bul_ham = 0
 coke = 0
-t_1 = t
 
-if n > t and m > t:     # 타워버거와 불고기버거를 먹는 시간이 주어진 시간보다 크면 그 시간에 콜라를 마신다.
-    coke = t
-if n <= t and m > t:   # 타워버거만 t보다 작을 때
-    while True:
-        tow += 1
-        t = t - n
-        if t < n:
-            coke = t
+while t >= 0:
+    if m >= n:
+        if t % n == 0:
+            tow_ham += t // n
             break
-if n > t and m <= t:    # 불고기버거만 t보다 작을 때
-    while True:
-        bul += 1
-        t = t - m
-        if t < m:
-            coke = t
+        else:
+            t -= n
+            tow_ham += 1
+            t1 = t              # t1 임시로 설정
+
+            # if t1 < n:          # 불고기 버거 추가
+            #     while 0 < t1 <= t:
+            #         t1 += n
+            #         tow_ham -= 1
+            #         t1 -= m
+            #         bul_ham += 1
+            #         if t1 == 0:
+            #             coke = t1
+            #             break
+
+    if m < n:
+        if t % m == 0:
+            bul_ham += t // m
             break
-if n <= t and m <= t:   # 타워버거와 불고기 버거가 모두 t보다 작을 때
-    while True:
-        if n >= m:
-            bul += 1
-            t = t - m
-            if 0 < t < :
-
-
-        if n <= m:
-            tow += 1
-            t = t - n
-            if t < m:
-                if t_1 == bul * m + tow * n:
+        else:
+            t -= m
+            bul_ham += 1
+            t1 = t
+            if 0 < t1 < n:           # 타워버거 버거 추가
+                while True:
+                    t1 += m
+                    bul_ham -= 1
+                    t1 -= n
+                    tow_ham += 1
+                    if t1 == 0:
+                        coke = t1
+                        break
+                    coke = t
                     break
-                t = t + n
-                tow -= 1
-                t = t - m
-                bul += 1
-            coke = t
-print(tow, bul, coke)
+print(bul_ham + tow_ham, coke)
 
+#
+# n, m, t = map(int, input().split())
+#
+#
+# coke = 0
+# result = []
+# if m >= n:
+#     for x in range(t // n, -1, -1):
+#         for y in range(0, t //m):
+#             if x * n + y * m == t:
+#                 result.append(x + y)
+#                 coke = 0
+#                 break
+#             # else:             # 딱 안나눠떨어진다면??
+#             #     result.append(t // n)
+#             #     coke = t - max(result) * n
+#
+# if n > m:
+#     for x in range(t // m, -1, -1):
+#         for y in range(0, t //n):
+#             if x * m + y * n == t:
+#                 result = x + y
+#                 coke = 0
+#                 break
+#             else:
+#                 result.append(t // m)
+#                 coke = t - max(result) * m
+# print(max(result), coke)
