@@ -1,75 +1,34 @@
 n, m, t = map(int, input().split())
 
-tow_ham = 0
-bul_ham = 0
 coke = 0
+total = 0
+tmp_t = t
 
-while t >= 0:
-    if m >= n:
-        if t % n == 0:
-            tow_ham += t // n
-            break
-        else:
-            t -= n
-            tow_ham += 1
-            t1 = t              # t1 임시로 설정
+while True:
+    if tmp_t == 0:
+        break
 
-            # if t1 < n:          # 불고기 버거 추가
-            #     while 0 < t1 <= t:
-            #         t1 += n
-            #         tow_ham -= 1
-            #         t1 -= m
-            #         bul_ham += 1
-            #         if t1 == 0:
-            #             coke = t1
-            #             break
+    if tmp_t < 0:           # 시간 오래 걸리는걸 빼다보면 tmp_t가 음수가 나오는 경우가 있다(7, 9, 26)
+        coke += 1           # 콜라 추가
+        tmp_t = t - coke    # 콜라 마신 만큼 시간에서 빼준다.(콜라먹는 시간을 1분으로 생각)
+        total = 0           # 콜라를 뺀만큼부터 햄버거 다시 계산해주기
 
-    if m < n:
-        if t % m == 0:
-            bul_ham += t // m
-            break
-        else:
-            t -= m
-            bul_ham += 1
-            t1 = t
-            if 0 < t1 < n:           # 타워버거 버거 추가
-                while True:
-                    t1 += m
-                    bul_ham -= 1
-                    t1 -= n
-                    tow_ham += 1
-                    if t1 == 0:
-                        coke = t1
-                        break
-                    coke = t
-                    break
-print(bul_ham + tow_ham, coke)
+    if n <= m:
+        if tmp_t % n == 0:
+            total += tmp_t // n
+            tmp_t = 0
 
-#
-# n, m, t = map(int, input().split())
-#
-#
-# coke = 0
-# result = []
-# if m >= n:
-#     for x in range(t // n, -1, -1):
-#         for y in range(0, t //m):
-#             if x * n + y * m == t:
-#                 result.append(x + y)
-#                 coke = 0
-#                 break
-#             # else:             # 딱 안나눠떨어진다면??
-#             #     result.append(t // n)
-#             #     coke = t - max(result) * n
-#
-# if n > m:
-#     for x in range(t // m, -1, -1):
-#         for y in range(0, t //n):
-#             if x * m + y * n == t:
-#                 result = x + y
-#                 coke = 0
-#                 break
-#             else:
-#                 result.append(t // m)
-#                 coke = t - max(result) * m
-# print(max(result), coke)
+        elif tmp_t % n != 0:
+            tmp_t -= m      # 어차피 n으로 나누어떨어지지 않는다면 m은 무조건 포함해야한다.(콜라를 최소로 하기 위해)
+            total += 1
+
+    elif n > m:
+        if tmp_t % m == 0:
+            total += tmp_t // m
+            tmp_t = 0
+
+        elif tmp_t % m != 0:
+            tmp_t -= n      # 어차피 m으로 나누어떨어지지 않는다면 n은 무조건 포함해야한다.(콜라를 최소로 하기 위해)
+            total += 1
+
+print('{} {}'.format(total, coke))
