@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open('4659-백준-비밀번호발음하기.txt')
 
+
+
 def checkvowel(text):
     for t in text:
         if t in vowel:
@@ -37,6 +39,9 @@ for tc in range(1, TC+1):
     text = list(input())
     vowel = ['a', 'e', 'i', 'o', 'u']
 
+    if text == 'end':
+        break
+
     text_text = ''
     for t in text:
         text_text += t
@@ -54,6 +59,7 @@ for tc in range(1, TC+1):
             print('<{}> is not acceptable.'.format(text_text))
         else:
             print('<{}> is acceptable.'.format(text_text))
+
 
 
 # # <a> is acceptable.

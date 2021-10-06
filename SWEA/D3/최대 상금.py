@@ -27,11 +27,24 @@ sys.stdin = open('최대 상금.txt')
 #재귀
 def solve(k):   # k 는 바꾸는 횟수
     global maxV
+
     if k == int_change:
         intV = int(''.join(lst_base))
         if maxV < intV:
             maxV = intV
         return
+    intV = int(''.join(lst_base))
+    for i in range(720):
+
+        if state[k][i] == 0:
+            state[k][i] = intV
+            break
+
+        if state[k][i] == intV:
+            return
+
+
+
 
     L = len(base)
     for i in range(0, L-1):
@@ -45,7 +58,8 @@ TC = int(input())
 for tc in range(1, TC+1):
     base, change = input().split()        # str(123), str(1)
     lst_base = list(base)
-    int_change= int(change)
+    int_change = int(change)
+    state = [[0] * 720 for _ in range(int_change)]  # 6! = 720
     maxV = 0
     solve(0)
     print('#{} {}'.format(tc, maxV))
