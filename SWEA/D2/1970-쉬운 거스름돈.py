@@ -1,7 +1,7 @@
-T = int(input())
+TC = int(input())
 
 won = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
-for ex in range(T):
+for tc in range(1, TC+1):
     cnt = []
     exc = int(input())
     for x in won:
@@ -9,5 +9,9 @@ for ex in range(T):
         exc = exc % x
         cnt.append(a)
 
-    print(f'#{ex + 1}')
+    print(f'#{tc}')
     print(*cnt)
+
+    # 2
+    # 32850
+    # 160
