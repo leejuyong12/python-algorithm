@@ -105,4 +105,4 @@ for tc in range(1, TC+1):
     visited = [False] * 101
     maxV = -1
     solve()
-    print(maxV)
+    print('#{} {}'.format(tc, maxV))
