@@ -8,19 +8,20 @@ def fill():
         for j in range(s, e+1):
             arr[j][i] = chr(num)
             num += 1
-            if chr(num -1) == 'Z':
-                num = ord('A')
+            if num > 90:
+                num = 65
         s -= 1
         e += 1
 
-def printall():
-    for i in range(N):
-        for j in range
 
 TC = int(input())
 for tc in range(1, TC+1):
     N = int(input())
     mid = N // 2
-    arr = [ [' '] * (mid + 1) for _ in range(N)]
-
-    fill
+    arr = [[''] * N for _ in range(N)]
+    fill()
+    print('#{}'.format(tc))
+    for x in range(N):
+        for y in range(N):
+            print(arr[x][y], end = ' ')
+        print()
