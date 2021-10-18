@@ -20,8 +20,9 @@ def check(x, y):
 def omok():
     for i in range(N):
         for j in range(N):
-            if check(i ,j):
-                return True
+            if arr[i][j] == 'o':
+                if check(i ,j):
+                    return True
     return False
 
 TC = int(input())

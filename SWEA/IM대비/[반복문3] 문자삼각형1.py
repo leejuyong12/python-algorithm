@@ -8,12 +8,10 @@ def fill():
         while i < N:
             arr[i][k] = chr(num)
             num += 1
-
-            if chr(num) > 'Z':
-                num = ord('A')
+            if num > 90:
+                num = 65
             k -= 1
             i += 1
-
 TC = int(input())
 for tc in range(1, TC+1):
     N = int(input())
