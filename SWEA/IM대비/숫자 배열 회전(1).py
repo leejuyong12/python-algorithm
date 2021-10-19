@@ -10,7 +10,7 @@ def change(arr, N):
 TC = int(input())
 for tc in range(1, TC+1):
     N = int(input())
-    arr = [list(map(int, input().split())) for _ in range(N)]
+    arr = [list(input().split()) for _ in range(N)]
     change_90 = change(arr, N)
     change_180 = change(change_90, N)
     change_270 = change(change_180, N)
