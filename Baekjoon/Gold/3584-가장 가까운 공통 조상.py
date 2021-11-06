@@ -9,7 +9,7 @@ for tc in range(1, TC+1):
         p, c = map(int, input().split())
         parent[c] = p
     n1, n2 = map(int, input().split())
-
+    print(parent)
     n1_lst = [n1]       # n1의 부모의 부모의 부모의 계속 저장
     n2_lst = [n2]       # n2의 부모의 부모의 부모의 계속 저장장
 
