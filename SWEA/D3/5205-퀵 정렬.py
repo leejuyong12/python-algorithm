@@ -1,6 +1,7 @@
 import sys
 sys.stdin = open('퀵 정렬.txt')
 
+# 퀵 정렬 체크하기
 def quick_sort(lst, l, r):
     if l < r:
         s = partitionH(l, r)

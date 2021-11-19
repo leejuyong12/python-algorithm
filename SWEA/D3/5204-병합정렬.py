@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open('병합정렬.txt')
 
+
+# 병합정렬 체크하기
 def mergesort(lst):
     global cnt
     if len(lst) == 1:
