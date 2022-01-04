@@ -28,7 +28,7 @@ result = -2
 for i in arr:
     for j in i:
         if j == 0:
-            isTrue = True
+            isTrue = True       # 0이 하나라도 있다면
         result = max(result, j)
 if isTrue == True:
     print(-1)
