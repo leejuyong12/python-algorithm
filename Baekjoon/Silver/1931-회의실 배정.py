@@ -11,4 +11,5 @@ for x in range(1, N):
     if lst[x][0] >= end_time:
         cnt += 1
         end_time = lst[x][1]
+print(lst)
 print(cnt)
