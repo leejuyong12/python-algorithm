@@ -5,6 +5,7 @@ def bfs(start):
     answer = []
     visited[start] = True
     queue = deque([start])
+    print(queue)
     while queue:
         X = queue.popleft()
         for i in arr[X]:
