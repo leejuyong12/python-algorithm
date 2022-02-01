@@ -50,7 +50,7 @@ sys.stdin = open('꽃길.txt')
 
 dy = [0, -1, 1, 0, 0]
 dx = [0, 0, 0, -1, 1]
-def check(y, x):
+def check(y, x):  # 범위 안에 들어있는가 - 들어있으면 True 아니면 False
     global N
     for i in range(5):
         nx = x + dx[i]
@@ -60,7 +60,7 @@ def check(y, x):
             return False
     return True
 
-def calculate(y, x):
+def calculate(y, x):  # 상하좌우가운데 합 계산
     global N
     result = 0
     for i in range(5):
@@ -71,16 +71,16 @@ def calculate(y, x):
 
 def dfs(a, cost, cnt):
     global answer
-    if cnt == 3:
+    if cnt == 3:        # 꽃이 세개면 끝
         answer = min(answer, cost)
         return
     for i in range(a, N):
         for j in range(1, N):
-            if check(i, j):
-                visited[i][j] = True
-                for z in range(5):
+            if check(i, j): # 범위 안에 들어있으면
+                visited[i][j] = True # 중간에 있는거 True로 바꾸고
+                for z in range(5):      # 상하좌우에 있는거 다 True로 바꾸기
                     visited[i+dy[z]][j+dx[z]] = True
-                dfs(i, cost+calculate(i, j), cnt+1)
+                dfs(i, cost+calculate(i, j), cnt+1)  #
                 visited[i][j] = False
                 for z in range(5):
                     visited[i+dy[z]][j+dx[z]] = False
