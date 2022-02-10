@@ -21,19 +21,19 @@ def bfs():
         check(x - water, y + water)
         # x -> z
         water = min(x, C-z)
-        check(x - water, z + water)
+        check(x - water, y)
         # y -> x
         water = min(y, A-x)
-        check(y - water, x + water)
+        check(x + water, y - water)
         # y -> z
         water = min(y, C-z)
-        check(y - water, z + water)
+        check(x, y - water)
         # z -> x
         water = min(z, A-x)
-        check(z - water, x + water)
+        check(x + water, y)
         # z -> y
         water = min(z, B-y)
-        check(z - water, y + water)
+        check(x, y + water)
 A, B, C = map(int, input().split())
 visited = [[False] * 201 for _ in range(201)]
 visited[0][0] = True
@@ -43,5 +43,4 @@ answer = []
 bfs()
 answer.sort()
 for i in answer:
-    if i != 0:
-        print(i, end=" ")
+    print(i, end=" ")
