@@ -20,9 +20,7 @@ def bfs(x,y):
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if nx >= R or nx < 0 or ny >= C or ny < 0 or arr[nx][ny] == '#':
-                continue
-            else:
+            if 0 <= nx < R and 0 <= ny < C and visited[nx][ny] == 0 and arr[nx][ny] != '#':
                 if arr[nx][ny] == 'o':
                     ns += 1
                 elif arr[nx][ny] == 'v':
@@ -34,10 +32,6 @@ def bfs(x,y):
             w -= nw
         else:
             s -= ns
-
-
-
-
 R, C = map(int, input().split())
 arr = [list(input()) for _ in range(C)]
 visited = [[False] * R for _ in range(C)]
@@ -45,7 +39,7 @@ s = 0
 w = 0
 for i in range(R):
     for j in range(C):
-        if visited[i][j] == False:
+        if visited[i][j] == False and arr[i][j] != '#':
             if arr[i][j] == 'o':
                 s += 1
                 visited[i][j] = True
@@ -54,3 +48,4 @@ for i in range(R):
                 visited[i][j] = True
         bfs(i, j)
 print(s, w)
+# 다시 풀어보기
