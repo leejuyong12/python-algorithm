@@ -13,6 +13,8 @@ def bfs(x,y):
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
+            if nx <= 0 or nx > N or ny <= 0 or ny > N:
+                continue
             
 N = int(input())
 arr = [list(map(int, input().split())) for _ in range(N)]
