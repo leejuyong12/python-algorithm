@@ -23,6 +23,6 @@ def bfs(x, y):
     return arr[N-1][M-1]
 
 N, M = map(int, input().split())
-arr = [list(map(int, input())) for _ in range(M)]
+arr = [list(map(int, input())) for _ in range(N)]
 
 print(bfs(0,0))
