@@ -1,5 +1,7 @@
 import sys
 sys.stdin = open('양.txt')
+
+# 답은 아님
 from collections import deque
 dr = [-1, 1, 0, 0]
 dc = [0, 0, -1, 1]
@@ -29,12 +31,13 @@ def bfs(r,c):
                 visited[nr][nc] = True
                 queue.append((nr, nc))
 
-    # 늑대와 양이 최소있을때만 적용
+    # 늑대와 양이 최소 1개 이상 있을때만 적용
     if wolf > 0 and sheep > 0:
         if wolf > sheep:
             total_sheep -= sheep
         else:
             total_wolf -= wolf
+
 R, C = map(int, input().split())
 arr = [list((input())) for _ in range(R)]
 visited = [[False] * C for _ in range(R)]
