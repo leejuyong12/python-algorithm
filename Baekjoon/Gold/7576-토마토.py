@@ -23,6 +23,7 @@ def bfs():
                     queue.append([nx, ny])
                     arr[nx][ny] = arr[x][y] + 1
 bfs()
+print(arr)
 isTrue = False
 result = -2
 for i in arr:
