@@ -25,3 +25,21 @@ for i in B:
         max_B += i
 
 print(int(min_A)+int(min_B), int(max_A)+int(max_B) )
+
+
+# def cal(num):
+#     minX, maxX = "", ""
+#     for i in num:
+#         if i == "5" or i == "6":
+#             minX += "5"
+#             maxX += "6"
+#             continue
+#         minX += i
+#         maxX += i
+#     return int(minX), int(maxX)
+#
+#
+# a, b = input().split()
+# minA, maxA = cal(a)
+# minB, maxB = cal(b)
+# print(minA + minB, maxA + maxB)
